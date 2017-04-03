@@ -1,0 +1,28 @@
+.site-header {
+  background-color: #ff0000;
+}
+#button-menu {
+  display: none;
+  background-color: transparent;
+  background: none;
+  border: 1px solid transparent;
+  outline: none;
+  &:hover {
+    cursor: pointer;
+  }
+  & span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    margin-bottom: 3px;
+    background-color: #000;
+  }
+}
+.navbar-nav {
+  li {
+    margin: 0 20px;
+    a {
+      text-transform: uppercase;
+    }
+  }
+}
