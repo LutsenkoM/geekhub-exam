@@ -19,6 +19,6 @@ $( document ).ready(function() {
     var head_height = $('.site-header').height();
     var site_height = $(window).height();
     var content_height = site_height - head_height - foot_height;
-    $('.site-content').css("height", content_height);
+    $('.site-content').css("min-height", content_height);
 //    STIKY FOOTER END
 });

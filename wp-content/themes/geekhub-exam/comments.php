@@ -78,8 +78,21 @@ if ( post_password_required() ) {
 		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'gh-exam' ); ?></p>
 	<?php
 	endif;
+	//MY SETINGS
+	$fields =  array(
+		'title_reply'          => __( 'Leave your comment' ),
+		'label_submit'         => __( 'Submit now' ),
+		'class_submit'         => 'link-style',
 
-	comment_form();
+		'comment_field' =>  '<p class="comment-form-comment"><label for="comment">' . _x( '', 'noun' ) .
+			'</label><textarea id="comment" name="comment" placeholder= "Comment*" rows="8" aria-required="true">' .
+			'</textarea></p>',
+
+
+	);
+	//MY SETINGS END
+
+	comment_form($fields);
 	?>
 
 </div><!-- #comments -->

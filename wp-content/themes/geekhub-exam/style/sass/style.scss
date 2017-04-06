@@ -1,13 +1,16 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/*
+Theme Name: GeekHUB EXAM
+Theme URI: https://
+Author: Lutsenko Max
+Description: Welcome to my exam theme)
+Version: 1.0
+*/
 
 @import "compass/reset";
-
 @import "./base/fonts";
+@import "./base/components";
 @import "./veriables";
-
+@import "./mixins";
 @import "./layout/header";
 @import "./layout/home-page";
 @import "./layout/blog-page";

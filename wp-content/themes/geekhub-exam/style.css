@@ -1,7 +1,10 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/*
+Theme Name: GeekHUB EXAM
+Theme URI: https://
+Author: Lutsenko Max
+Description: Welcome to my exam theme)
+Version: 1.0
+*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -59,9 +62,25 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 @font-face {
-  font-family: "Century Gothic";
+  font-family: "OpenSans";
   src: url("/fonts/OpenSans/OpenSans-Regular.ttf") format("truetype");
 }
+.margin-bottom-lg {
+  margin-bottom: 6.25rem;
+}
+
+a, button {
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+button {
+  cursor: pointer;
+}
+
 .site-header {
   background-color: #ff0000;
 }
@@ -91,6 +110,35 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   text-transform: uppercase;
 }
 
+body {
+  margin: 0;
+}
+
+.wp-post-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.pag-wrap .next, .pag-wrap .prev {
+  display: none;
+}
+
+.social-icons li {
+  margin: 0 10px;
+}
+.social-icons li a {
+  display: block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.social-icons li a:hover {
+  color: #ac1b1b;
+}
+
 @media (max-width: 992px) {
   #button-menu {
     display: block !important;
@@ -101,6 +149,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   }
   .navbar-nav li {
     text-align: center;
-    margin: 0 0 5px 0;
+    margin: 0 0 20px 0;
   }
 }

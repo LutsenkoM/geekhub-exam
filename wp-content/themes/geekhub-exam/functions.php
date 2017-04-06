@@ -40,12 +40,12 @@ add_action( 'after_setup_theme', 'gh_exam_content_width', 0 );
 function post_types_init() {
 //Slider-intro
         $slider_main = array(
-            'label' => 'Intro slider',
+            'label' => 'Test',
             'public' => true,
             'show_ui' => true,
             'capability_type' => 'post',
             'hierarchical' => false,
-            'rewrite' => array('slug' => 'top-slider'),
+            'rewrite' => array('slug' => 'test'),
             'query_var' => true,
             'supports' => array(
                 'title',
@@ -59,8 +59,8 @@ function post_types_init() {
                 'author',
                 'page-attributes',)
         );
-        register_post_type('Top slider', $slider_main);
-        //Slider-intro end
+        register_post_type('test', $slider_main);
+//Slider-intro end
 
 }
 add_action('init', 'post_types_init');
@@ -90,6 +90,96 @@ function gh_exam_widgets_init() {
 }
 add_action( 'widgets_init', 'gh_exam_widgets_init' );
 // WIDGETS END
+
+//Comment Block
+    function mytheme_comment($comment, $args, $depth) {
+        if ( 'div' === $args['style'] ) {
+            $tag       = 'div';
+            $add_below = 'comment';
+        } else {
+            $tag       = 'li';
+            $add_below = 'div-comment';
+        }
+        ?>
+        <<?php echo $tag ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ) ?> id="comment-<?php comment_ID() ?>">
+        <?php if ( 'div' != $args['style'] ) : ?>
+            <div id="div-comment-<?php comment_ID() ?>" class="comment-body ">
+        <?php endif; ?>
+                <div class="avatar ">
+                    <?php if ( $args['avatar_size'] != 0 ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
+                </div>
+                <div class="comment-block ">
+                    <div class="comment-author vcard">
+                        <?php printf( __( '<p class="fn">%s</p>' ), get_comment_author_link() ); ?>
+                        <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>">
+                            <?php
+                            /* translators: 1: date, 2: time */
+                            printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)' ), '  ', '' );
+                        ?>
+
+
+                    </div>
+                    <?php if ( $comment->comment_approved == '0' ) : ?>
+                        <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em>
+                        <br />
+                    <?php endif; ?>
+
+                    <?php comment_text(); ?>
+
+                    <div class="reply">
+                        <?php comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text'=> 'reply' ) ) ); ?>
+                    </div>
+                </div>
+        <?php if ( 'div' != $args['style'] ) : ?>
+            </div>
+        <?php endif; ?>
+        <?php
+    }
+//Comment Block END
+
+// Change position of commetn forms
+    add_filter( 'comment_form_fields', 'example_order_comment_form_fields' );
+    function example_order_comment_form_fields( $fields ) {
+        $comment = $fields['comment'];
+        unset( $fields['comment'] );
+        $fields['comment'] = $comment;
+        return $fields;
+    }
+// Change position of commetn forms end
+
+//Add new fields to comment form
+    add_filter('comment_form_default_fields', 'custom_fields_comments');
+    function custom_fields_comments($fields) {
+
+        $commenter = wp_get_current_commenter();
+        $req = get_option( 'require_name_email' );
+        $aria_req = ( $req ? " aria-required='true'" : '' );
+
+        $fields[ 'author' ] = '<p class="comment-form-author">'.
+            '<label for="author">' . __( '' ) . '</label>'.
+            ( $req ? '<span class="required"></span>' : '' ).
+            '<input id="author" name="author" placeholder="Name*" type="text" value="'. esc_attr( $commenter['comment_author'] ) .
+            '" size="30" tabindex="1"' . $aria_req . ' /></p>';
+
+        $fields[ 'email' ] = '<p class="comment-form-email">'.
+            '<label for="email">' . __( '' ) . '</label>'.
+            ( $req ? '<span class="required"></span>' : '' ).
+            '<input id="email" name="email" placeholder="Email Address *" type="text" value="'. esc_attr( $commenter['comment_author_email'] ) .
+            '" size="30"  tabindex="2"' . $aria_req . ' /></p>';
+
+//    $fields[ 'url' ] = '<p class="comment-form-url">'.
+//        '<label for="url">' . __( 'Website' ) . '</label>'.
+//        '<input id="url" name="url" type="text" value="'. esc_attr( $commenter['comment_author_url'] ) .
+//        '" size="30"  tabindex="3" /></p>';
+
+
+        $fields[ 'phone' ] = '<p class="comment-form-phone">'.
+            '<label for="phone">' . __( '' ) . '</label>'.
+            '<input id="phone" name="phone" placeholder="Phone number*" type="text" size="30"  tabindex="4" /></p>';
+
+        return $fields;
+    }
+//Add new fields to comment form end
 
 // AFTER THEME SETUP
 function gh_exam_setup() {
@@ -127,10 +217,17 @@ function gh_exam_setup() {
     //Load logo
     add_theme_support( 'custom-logo' );
     //Load logo end
+
+    //Add post formats support
+        add_theme_support('post-formats', array('aside', 'gallery', 'link'));
+    //Add post formats end
 }
 endif;
 add_action( 'after_setup_theme', 'gh_exam_setup' );
 // AFTER THEME SETUP END
+
+
+
 
 /**
  * Implement the Custom Header feature.

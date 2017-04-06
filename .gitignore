@@ -90,6 +90,8 @@ Thumbs.db
 
 # track these files, if they exist
 !.gitignore
+!README.txt
+!geekhub_exam.sql
 !.editorconfig
 !README.md
 !CHANGELOG.md

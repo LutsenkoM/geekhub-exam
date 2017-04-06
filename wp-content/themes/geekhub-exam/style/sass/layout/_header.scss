@@ -1,3 +1,9 @@
+a, button {
+  @include transition;
+}
+button {
+  cursor: pointer;
+}
 .site-header {
   background-color: #ff0000;
 }
@@ -25,4 +31,7 @@
       text-transform: uppercase;
     }
   }
+}
+body {
+  margin:0;
 }

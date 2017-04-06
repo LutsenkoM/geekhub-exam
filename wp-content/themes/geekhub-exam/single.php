@@ -11,6 +11,9 @@ get_header(); ?>
 	<div id="primary" class="content-area container">
 		<div class="row">
 			<main id="main" class="site-main col-lg-9 col-md-9 col-sm-12 col-12" role="main">
+				<header>
+					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+				</header>
 
 				<?php
 				while ( have_posts() ) : the_post();
