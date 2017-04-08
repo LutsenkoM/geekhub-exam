@@ -38,14 +38,64 @@ add_action( 'after_setup_theme', 'gh_exam_content_width', 0 );
 
 //REGISTERED POST TYPES
 function post_types_init() {
-//Slider-intro
-        $slider_main = array(
-            'label' => 'Test',
+
+
+    //Services posts
+    $services = array(
+        'label' => 'Services',
+        'public' => true,
+        'show_ui' => true,
+        'capability_type' => 'post',
+        'hierarchical' => false,
+        'rewrite' => array('slug' => 'services'),
+        'query_var' => true,
+        'supports' => array(
+            'title',
+            'editor',
+            'excerpt',
+            'trackbacks',
+            'custom-fields',
+            'comments',
+            'revisions',
+            'thumbnail',
+            'author',
+            'page-attributes',)
+    );
+    register_post_type('services', $services);
+//Services posts end
+
+    //Services posts
+    $portfolio = array(
+        'label' => 'Portfolio',
+        'public' => true,
+        'show_ui' => true,
+        'capability_type' => 'post',
+        'hierarchical' => false,
+        'rewrite' => array('slug' => 'services'),
+        'query_var' => true,
+        'supports' => array(
+            'title',
+            'editor',
+            'excerpt',
+            'trackbacks',
+            'custom-fields',
+            'comments',
+            'revisions',
+            'thumbnail',
+            'author',
+            'page-attributes',)
+    );
+    register_post_type('portfolio', $portfolio);
+//Services posts end
+
+//Clients slider
+        $clients = array(
+            'label' => 'Featured clients',
             'public' => true,
             'show_ui' => true,
             'capability_type' => 'post',
             'hierarchical' => false,
-            'rewrite' => array('slug' => 'test'),
+            'rewrite' => array('slug' => 'clients'),
             'query_var' => true,
             'supports' => array(
                 'title',
@@ -59,8 +109,8 @@ function post_types_init() {
                 'author',
                 'page-attributes',)
         );
-        register_post_type('test', $slider_main);
-//Slider-intro end
+        register_post_type('clients', $clients);
+//Clients-slider end
 
 }
 add_action('init', 'post_types_init');
@@ -219,7 +269,7 @@ function gh_exam_setup() {
     //Load logo end
 
     //Add post formats support
-        add_theme_support('post-formats', array('aside', 'gallery', 'link'));
+        add_theme_support('post-formats', array('aside', 'gallery', 'link', 'image'));
     //Add post formats end
 }
 endif;

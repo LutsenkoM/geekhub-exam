@@ -1,0 +1,31 @@
+.blog-single-post {
+  border: 1px solid #ccc;
+  padding: 5px;
+  h1, h2, h3, h4, h5, h6 {
+    color: #f9690e;
+    margin-bottom: 20px;
+  }
+  p {
+    margin-bottom: 20px;
+  }
+}
+
+.alignnone {
+  display: inline-block;
+  float: left;
+  margin: 0 10px 10px 0;
+  max-width: 100%;
+  height: auto;
+}
+
+.single-pagination {
+  margin: 20px 0;
+  .pag-link a{
+    font-size: 24px;
+    color: #ff4848;
+    text-transform: uppercase;
+    &:hover {
+      color: #000;
+    }
+  }
+}

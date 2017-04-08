@@ -22,7 +22,270 @@ function gh_exam_customize_register( $wp_customize ) {
             'priority' => 10,
         )
     );
+    //Intro
+    $wp_customize->add_section ( 'intro',
+        array(
+            'title' => __('Intro section'),
+            'priority' => 10,
+            'panel' => 'Home page panel'
+        )
+    );
 
+    $wp_customize->add_setting(
+        'intro_image',
+        array(
+            'default'			=> ''
+        )
+    );
+
+    $wp_customize->add_control(
+        new WP_Customize_Image_Control(
+            $wp_customize,
+            'intro_image',
+            array(
+                'settings'		=> 'intro_image',
+                'section'		=> 'intro',
+                'label'			=> __( 'Upload intro image')
+            )
+        )
+    );
+
+    $wp_customize->add_setting(
+        'intro_title',
+        array(
+            'default'			=> '',
+        )
+    );
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize, 'intro_title',
+            array(
+                'settings'		=> 'intro_title',
+                'section'		=> 'intro',
+                'type'			=> 'text',
+                'label'	        => __( 'Intro title' )
+            )
+        )
+    );
+    $wp_customize->add_setting(
+        'intro_subtitle',
+        array(
+            'default'			=> '',
+        )
+    );
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize, 'intro_subtitle',
+            array(
+                'settings'		=> 'intro_subtitle',
+                'section'		=> 'intro',
+                'type'			=> 'text',
+                'label'	        => __( 'Intro subtitle' )
+            )
+        )
+    );
+
+    $wp_customize->add_setting(
+        'intro_second_title',
+        array(
+            'default'			=> '',
+        )
+    );
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize, 'intro_second_title',
+            array(
+                'settings'		=> 'intro_second_title',
+                'section'		=> 'intro',
+                'type'			=> 'text',
+                'label'	        => __( 'Intro second title' )
+            )
+        )
+    );
+
+    $wp_customize->add_setting(
+        'intro_text',
+        array(
+            'default'			=> '',
+        )
+    );
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize, 'intro_text',
+            array(
+                'settings'		=> 'intro_text',
+                'section'		=> 'intro',
+                'type'			=> 'textarea',
+                'label'	        => __( 'Intro text' )
+            )
+        )
+    );
+    //Intro end
+
+
+    //Welcome section
+    $wp_customize->add_section ( 'welcome',
+        array(
+            'title' => __('Welcome section'),
+            'priority' => 10,
+            'panel' => 'Home page panel'
+        )
+    );
+
+    $wp_customize->add_setting(
+        'welcome_image',
+        array(
+            'default'			=> ''
+        )
+    );
+
+    $wp_customize->add_control(
+        new WP_Customize_Image_Control(
+            $wp_customize,
+            'welcome_image',
+            array(
+                'settings'		=> 'welcome_image',
+                'section'		=> 'welcome',
+                'label'			=> __( 'Upload welcome image')
+            )
+        )
+    );
+
+    $wp_customize->add_setting(
+        'welcome_title',
+        array(
+            'default'			=> '',
+        )
+    );
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize, 'welcome_title',
+            array(
+                'settings'		=> 'welcome_title',
+                'section'		=> 'welcome',
+                'type'			=> 'text',
+                'label'	        => __( 'Welcome title' )
+            )
+        )
+    );
+
+    $wp_customize->add_setting(
+        'welcome_description',
+        array(
+            'default'			=> '',
+        )
+    );
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize, 'welcome_description',
+            array(
+                'settings'		=> 'welcome_description',
+                'section'		=> 'welcome',
+                'type'			=> 'textarea',
+                'label'	        => __( 'Welcome description' )
+            )
+        )
+    );
+
+    //Welcome section end
+//    Services
+    $wp_customize->add_section ( 'services',
+        array(
+            'title' => __('Services'),
+            'priority' => 10,
+            'panel' => 'Home page panel'
+        )
+    );
+    $wp_customize->add_setting(
+        'services_title',
+        array(
+            'default'			=> '',
+        )
+    );
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize, 'services_title',
+            array(
+                'settings'		=> 'services_title',
+                'section'		=> 'services',
+                'type'			=> 'text',
+                'label'	        => __( 'Services title' )
+            )
+        )
+    );
+
+    $wp_customize->add_setting(
+        'services_subtitle',
+        array(
+            'default'			=> '',
+        )
+    );
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize, 'services_subtitle',
+            array(
+                'settings'		=> 'services_subtitle',
+                'section'		=> 'services',
+                'type'			=> 'textarea',
+                'label'	        => __( 'Services subtitle' )
+            )
+        )
+    );
+//    Services end
+//    Portfolio
+    $wp_customize->add_section ( 'portfolio',
+        array(
+            'title' => __('Portfolio'),
+            'priority' => 10,
+            'panel' => 'Home page panel'
+        )
+    );
+    $wp_customize->add_setting(
+        'portfolio_title',
+        array(
+            'default'			=> '',
+        )
+    );
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize, 'portfolio_title',
+            array(
+                'settings'		=> 'portfolio_title',
+                'section'		=> 'portfolio',
+                'type'			=> 'text',
+                'label'	        => __( 'Portfolio title' )
+            )
+        )
+    );
+
+    $wp_customize->add_setting(
+        'portfolio_subtitle',
+        array(
+            'default'			=> '',
+        )
+    );
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize, 'portfolio_subtitle',
+            array(
+                'settings'		=> 'portfolio_subtitle',
+                'section'		=> 'portfolio',
+                'type'			=> 'textarea',
+                'label'	        => __( 'Portfolio subtitle' )
+            )
+        )
+    );
+//    Portfolio end
     //Footer section
     $wp_customize->add_section ( 'footer',
         array(
@@ -31,6 +294,44 @@ function gh_exam_customize_register( $wp_customize ) {
             'panel' => 'Home page panel'
         )
     );
+    $wp_customize->add_setting(
+        'featured-slider-title',
+        array(
+            'default'			=> '',
+        )
+    );
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize, 'featured-slider-title',
+            array(
+                'settings'		=> 'featured-slider-title',
+                'section'		=> 'footer',
+                'type'			=> 'text',
+                'label'	        => __( 'Featured slider title' )
+            )
+        )
+    );
+
+    $wp_customize->add_setting(
+        'map_place',
+        array(
+            'default'			=> '',
+        )
+    );
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize, 'map_place',
+            array(
+                'settings'		=> 'map_place',
+                'section'		=> 'footer',
+                'type'			=> 'text',
+                'label'	        => __( 'Map url (google maps)' )
+            )
+        )
+    );
+
 
     $wp_customize->add_setting(
         'copyright',
@@ -50,81 +351,63 @@ function gh_exam_customize_register( $wp_customize ) {
             )
         )
     );
-    //Footer social links
+
     $wp_customize->add_setting(
-        'social_links_facebook',
+        'contact_text',
         array(
             'default'			=> '',
-            'sanitize_callback' => 'esc_url_raw'
         )
     );
 
     $wp_customize->add_control(
-        'social_links_facebook',
-        array(
-            'settings'		=> 'social_links_facebook',
-            'section'		=> 'footer',
-            'type'			=> 'url',
-            'label'	        => __( 'Facebook Url' )
+        new WP_Customize_Control(
+            $wp_customize, 'contact_text',
+            array(
+                'settings'		=> 'contact_text',
+                'section'		=> 'footer',
+                'type'			=> 'text',
+                'label'	        => __( 'Contact text' )
+            )
         )
     );
 
-    $wp_customize->add_setting (
-        'social_links_twitter',
-        array(
-            'default'			=> '',
-            'sanitize_callback' => 'esc_url_raw'
-        )
-    );
-
-    $wp_customize->add_control (
-        'social_links_twittwer',
-        array(
-            'settings'		=> 'social_links_twitter',
-            'section'		=> 'footer',
-            'type'			=> 'url',
-            'label'	        => __( 'Twitter Url' )
-        )
-    );
-
-
-    $wp_customize->add_setting (
-        'social_links_google',
+    $wp_customize->add_setting(
+        'contact_phone',
         array(
             'default'			=> '',
-            'sanitize_callback' => 'esc_url_raw'
         )
     );
 
-    $wp_customize->add_control (
-        'social_links_google',
-        array(
-            'settings'		=> 'social_links_google',
-            'section'		=> 'footer',
-            'type'			=> 'url',
-            'label'	        => __( 'Google+ Url' )
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize, 'contact_phone',
+            array(
+                'settings'		=> 'contact_phone',
+                'section'		=> 'footer',
+                'type'			=> 'text',
+                'label'	        => __( 'Contact phone' )
+            )
         )
     );
 
-    $wp_customize->add_setting (
-        'social_links_linkedin',
+    $wp_customize->add_setting(
+        'contact_address',
         array(
             'default'			=> '',
-            'sanitize_callback' => 'esc_url_raw'
         )
     );
 
-    $wp_customize->add_control (
-        'social_links_linkedin',
-        array(
-            'settings'		=> 'social_links_linkedin',
-            'section'		=> 'footer',
-            'type'			=> 'url',
-            'label'	        => __( 'Linkedin Url' )
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize, 'contact_address',
+            array(
+                'settings'		=> 'contact_address',
+                'section'		=> 'footer',
+                'type'			=> 'text',
+                'label'	        => __( 'Contact address' )
+            )
         )
     );
-
-    //Footer social links end
 
 }
 add_action( 'customize_register', 'gh_exam_customize_register' );

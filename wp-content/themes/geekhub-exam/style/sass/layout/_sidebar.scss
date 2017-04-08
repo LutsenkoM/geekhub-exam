@@ -1,0 +1,58 @@
+.widget {
+  background: #004966;
+  padding: 10px;
+  margin-bottom: 20px;
+  .widget-title {
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    margin: 20px 0;
+  }
+}
+.serch-form, .subscribe-input {
+  width: 100%;
+  line-height: 28px;
+  font-size: 18px;
+  color: #b2b2b2;
+  border: 1px solid #aac2cc;
+  background: transparent;
+  padding: 5px;
+  &:focus {
+    border: 1px solid #ff4848;
+  }
+}
+
+.subscribe-input {
+  margin-bottom: 20px;
+}
+.widget_categories {
+  .cat-item {
+    margin-bottom: 10px;
+    a {
+      font-size: 22px;
+      color: #fff;
+    }
+  }
+}
+.title-subscribe {
+  font-size: 12px;
+  color: #fff;
+  line-height: 16px;
+  margin-bottom: 10px;
+}
+
+.subscribe {
+  width: 100%;
+  border: 1px solid #fff;
+  background: #ff4848;
+  font-size: 18px;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 10px 0;
+  cursor: pointer;
+  &:hover {
+  background: #fff;
+    color: #ff4848;
+}
+}

@@ -1,19 +1,47 @@
 $( document ).ready(function() {
-// //      NAV-MENU
-//     var flag = true;
-//     var header = $('#masthead').height();
-//     var navwrapp = $('.nav-wrapp').height();
-//     var admin_bar = $('#wpadminbar').height();
-//     $('#button-menu').on('click', function (e) {
-//         if (flag) {
-//             flag = false;
-//
-//             $('.nav-wrapp').css("top", header + admin_bar ).slideToggle(function () {
-//                 flag = true;
-//             });
-//         }
-//     });
-// //    NAV-MENU END
+
+//Clients slider
+    $('.clients-slider').slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        dots: false,
+        autoplay: true,
+        arrows: false,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 4,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+
+    });
+//Clients slider end
+//Scroll down
+    $('.arrow-icon').click(function(){
+        $('html, body').animate({scrollTop:$('#welcome').position().top}, 2000);
+    });
+
+//Scroll down end
 //    STIKY FOOTER
     var foot_height = $('.site-footer').height();
     var head_height = $('.site-header').height();
